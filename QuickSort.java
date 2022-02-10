@@ -5,22 +5,23 @@ public class QuickSort {
 
     private static int partition(int[] q, int left, int right) {
         int pivot = q[right];
-        int start = left - 1;
+        int pointer = left - 1;
 
         for (int j = left; j < right; j++) {
             if (q[j] < pivot) {
-                start++;
-                if (start != j) {
-                    swap(q, start, j);
+                pointer++;
+
+                if (pointer != j) {
+                    swap(q, pointer, j);
                 }
             }
         }
 
-        if ((start + 1) != right) {
-            swap(q, start+1, right);
+        if ((pointer + 1) != right) {
+            swap(q, pointer+1, right);
         }
 
-        return start + 1;
+        return pointer + 1;
     }
 
     private static void swap(int[] q, int left, int right) {
